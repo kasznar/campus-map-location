@@ -5,7 +5,6 @@
 	<title>Meseország <3</title>
   <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
 	<style type="text/css">
-
 	#container{
 		text-align: center;
 	}	
@@ -21,14 +20,9 @@
     font-family: 'Pacifico', cursive;
     text-align: center;
   }
-
 	</style>
-	
 </head>
 <body>
-<!--	
-<a href="#" id="get_location">Get Location</a>
--->
 
 <div id="header">Meseország</div>
 
@@ -388,13 +382,12 @@
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	
 <script>
 
-	//console.log($('#svg28544').offset());
   var svgOffX = $('#svg28544').offset().left; 
 	var svgOffY = $('#svg28544').offset().top;
   console.log('SVG offset x:'+ svgOffX + '; y:' +svgOffY);
+
   //SVG nagyságának meghatározása
 	var svgHeight = $("#svg28544").height();
   var svgWidth = $("#svg28544").width();
@@ -412,45 +405,15 @@
     return y;
   }
 
-
-
-/*
-  function printMousePos(event) {
-    //console.log("mouseX: " + event.clientX + " - mouseY: " + event.clientY);
-    //console.log("svgX: " + (event.clientX - svgOffX) + " - svgY: " + (event.clientY - svgOffY));
-    navigator.geolocation.watchPosition(c);
-
-  }
-
-  document.addEventListener("click", printMousePos);
-*/
-
-setInterval(function(){ navigator.geolocation.watchPosition(c); }, 500);
-
-
-
-
-
+  setInterval(function(){ navigator.geolocation.watchPosition(c); }, 500);
 
   var c = function(pos){
     var lat = pos.coords.latitude;
     var long = pos.coords.longitude;
     coords = lat + ', ' + long;
 
-    //console.log(coords);
-
-    //47.480502, 19.055886
-
-    //var svgX = 89887.64 * long - 1712581.89;
-    //var svgY = -35371.18 * lat + 1679715.62;
-
-    //var svgX =  89887.64 * 19.05590 - 1712581.89;
-    //var svgY = -35371.18 * 47.48051 + 1679715.62;
-
     var svgX = illeszraEgyenest(19.05590,325,19.05501,245,long);
     var svgY = illeszraEgyenest(47.48051,396,47.47822,703,lat);
-
-    //console.log(svgX+':'+svgY);
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.beginPath();
@@ -461,29 +424,6 @@ setInterval(function(){ navigator.geolocation.watchPosition(c); }, 500);
     ctx.stroke();
     ctx.fill();
   }
-
-
-/*
-function animate() {
-    requestAnimationFrame(animate);
-    //ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    
-
-    //navigator.geolocation.getCurrentPosition(c);
-}
-
-animate();
-*/
-
-
-
-
-
-
-
-
-
 
 	</script>
 </body>
